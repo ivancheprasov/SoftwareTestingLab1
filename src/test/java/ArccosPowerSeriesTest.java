@@ -16,6 +16,13 @@ public class ArccosPowerSeriesTest {
     }
 
     @ParameterizedTest
+    @CsvFileSource(resources = "/testWrongValue.csv")
+    public void testWrongValue(Double value, Double wrongResult) {
+        double result = ArccosCalculator.arccos(value).doubleValue();
+        Assertions.assertNotEquals(wrongResult, result, TEST_VALUE_PRECISION);
+    }
+
+    @ParameterizedTest
     @CsvFileSource(resources = "/testSeriesLength.csv")
     public void testPrecision(Double value, Double expected, Integer seriesLength) {
         double result = ArccosCalculator.arccos(value, seriesLength).doubleValue();
