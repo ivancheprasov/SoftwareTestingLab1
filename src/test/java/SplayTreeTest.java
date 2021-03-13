@@ -10,23 +10,22 @@ public class SplayTreeTest {
     public void testInsertion() {
         SplayTree tree = new SplayTree();
         tree.insertAll(50, 20, 40, 70, 35, 80);
-        ArrayList<Integer> result = tree.getRootKeys();
         ArrayList<Integer> expected = new ArrayList<>(
                 Arrays.asList(80, 35, 20, null, null, 70, 50, 40, null, null, null, null, null)
         );
-        Assertions.assertEquals(expected, result);
+        Assertions.assertEquals(expected, tree.getRootKeys());
         tree.insert(55);
-        result = tree.getRootKeys();
-        expected = new ArrayList<>(
+        expected.clear();
+        expected.addAll(
                 Arrays.asList(55, 35, 20, null, null, 50, 40, null, null, null, 80, 70, null, null, null)
         );
-        Assertions.assertEquals(expected, result);
+        Assertions.assertEquals(expected, tree.getRootKeys());
         tree.insert(15);
-        result = tree.getRootKeys();
-        expected = new ArrayList<>(
+        expected.clear();
+        expected.addAll(
                 Arrays.asList(15, null, 55, 20, null, 35, null, 50, 40, null, null, null, 80, 70, null, null, null)
         );
-        Assertions.assertEquals(expected, result);
+        Assertions.assertEquals(expected, tree.getRootKeys());
     }
 
     @Test
@@ -44,55 +43,59 @@ public class SplayTreeTest {
     @Test
     public void testSearch() {
         SplayTree tree = new SplayTree();
-        tree.insertAll(50, 60, 70, 80, 30);
-        Assertions.assertTrue(tree.search(30));
-        Assertions.assertTrue(tree.search(70));
         ArrayList<Integer> expected = new ArrayList<>(
                 Arrays.asList(70, 30, null, 50, null, 60, null, null, 80, null, null)
         );
-        ArrayList <Integer> result = tree.getRootKeys();
-        Assertions.assertEquals(expected, result);
+        tree.insertAll(50, 60, 70, 80, 30);
+        Assertions.assertTrue(tree.search(30));
+        Assertions.assertTrue(tree.search(70));
+        Assertions.assertEquals(expected, tree.getRootKeys());
         Assertions.assertFalse(tree.search(90));
-        expected = new ArrayList<>(
+        expected.clear();
+        expected.addAll(
                 Arrays.asList(80, 70, 30, null, 50, null, 60, null, null, null, null)
         );
-        result = tree.getRootKeys();
-        Assertions.assertEquals(expected, result);
+        Assertions.assertEquals(expected, tree.getRootKeys());
     }
 
     @Test
     public void testRemoval() {
         SplayTree tree = new SplayTree();
+        ArrayList<Integer> expected = new ArrayList<>();
+        expected.add(null);
         tree.insert(1);
         tree.remove(1);
-        ArrayList<Integer> expected = new ArrayList<Integer>();
-        expected.add(null);
-        Assertions.assertEquals(tree.getRootKeys(), expected);
+        Assertions.assertEquals(expected, tree.getRootKeys());
         tree.insertAll(50, 20, 40, 70, 35, 80, 55, 15);
         tree.remove(55);
-        expected = new ArrayList<>(
+        expected.clear();
+        expected.addAll(
                 Arrays.asList(50, 15, null, 35, 20, null, null, 40, null, null, 80, 70, null, null, null)
         );
         Assertions.assertEquals(expected, tree.getRootKeys());
         tree.remove(10);
-        expected = new ArrayList<>(
+        expected.clear();
+        expected.addAll(
                 Arrays.asList(15, null, 50, 35, 20, null, null, 40, null, null, 80, 70, null, null, null)
         );
         Assertions.assertEquals(expected, tree.getRootKeys());
         tree.remove(40);
-        expected = new ArrayList<>(
+        expected.clear();
+        expected.addAll(
                 Arrays.asList(35, 15, null, 20, null, null, 50, null, 80, 70, null, null, null)
         );
         Assertions.assertEquals(expected, tree.getRootKeys());
         tree.remove(35);
-        expected = new ArrayList<>(
+        expected.clear();
+        expected.addAll(
                 Arrays.asList(20, 15, null, null, 50, null, 80, 70, null, null, null)
         );
         Assertions.assertEquals(expected, tree.getRootKeys());
         tree = new SplayTree();
         tree.insertAll(80, 70, 60, 50);
         tree.remove(50);
-        expected= new ArrayList<>(
+        expected.clear();
+        expected.addAll(
                 Arrays.asList(60, null, 70, null, 80, null, null)
         );
         Assertions.assertEquals(expected, tree.getRootKeys());
