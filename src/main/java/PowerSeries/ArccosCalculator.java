@@ -28,8 +28,6 @@ public interface ArccosCalculator {
     }
 
     static boolean isProperX(Double x) {
-        System.out.println(x);
-        System.out.println(Math.abs(x));
         return Math.abs(x) <= 1d;
     }
 
