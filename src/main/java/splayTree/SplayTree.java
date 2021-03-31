@@ -1,4 +1,4 @@
-package SplayTree;
+package splayTree;
 
 import java.util.ArrayList;
 
@@ -82,7 +82,7 @@ public class SplayTree {
         }
     }
 
-    private Node findNode(int key) {
+    public Node findNode(int key) {
         Node parent = null;
         Node node = root;
         while (node != null) {
@@ -107,7 +107,7 @@ public class SplayTree {
         return findNode(key) != null;
     }
 
-    private void splay(Node node) {
+    public void splay(Node node) {
         while (node.getParent() != null) {
             Node parent = node.getParent();
             Node grandParent = parent.getParent();

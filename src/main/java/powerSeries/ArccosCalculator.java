@@ -1,4 +1,4 @@
-package PowerSeries;
+package powerSeries;
 
 import java.math.BigDecimal;
 

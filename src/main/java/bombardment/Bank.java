@@ -1,4 +1,4 @@
-package Bombardment;
+package bombardment;
 
 public class Bank extends Building{
     public Bank() {

@@ -1,4 +1,4 @@
-package Bombardment;
+package bombardment;
 
 public class Bomb {
     private boolean isDangerous = true;

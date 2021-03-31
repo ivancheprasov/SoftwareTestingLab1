@@ -1,11 +1,11 @@
-package PowerSeries;
+package powerSeries;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class ArccosPowerSeries {
     private BigDecimal x;
-    private Integer seriesLength = 2500;
+    private int seriesLength = 2500;
     private BigDecimal result = BigDecimal.valueOf(Math.PI/2);
     private static final BigDecimal SCALE_PRECISION = BigDecimal.valueOf(0.000001d);
 
@@ -42,7 +42,7 @@ public class ArccosPowerSeries {
         return result;
     }
 
-    public Integer getSeriesLength() {
+    public int getSeriesLength() {
         return seriesLength;
     }
 }

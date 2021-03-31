@@ -1,4 +1,4 @@
-package Bombardment;
+package bombardment;
 
 public enum BuildingState {
     INITIAL,

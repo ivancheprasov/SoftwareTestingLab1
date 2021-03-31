@@ -1,4 +1,4 @@
-package SplayTree;
+package splayTree;
 
 public class Node {
     private final int key;

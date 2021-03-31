@@ -1,4 +1,4 @@
-package Bombardment;
+package bombardment;
 
 import java.util.ArrayList;
 
